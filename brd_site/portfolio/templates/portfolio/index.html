@@ -1,0 +1,12 @@
+{% extends 'portfolio/base.html' %}
+{% block title %}Ben's Portfolio{% endblock %}
+
+{% block body %}
+{%if projects %}
+{% for project in projects %}
+<h3>{{ project.name }}</h3>
+
+
+{% endfor %}
+{% endif %}
+{% endblock %}

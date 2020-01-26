@@ -5,7 +5,7 @@ from .models import Project
 
 def index(request):
     """Provide Projects as list of 2-tuples for easier 2-column display by template"""
-    proj_list = Project.objects.order_by('-start_date').values()
+    proj_list = Project.objects.order_by('-start_date')
     tup_list = list()
     for i, _ in enumerate(proj_list[::2]):
         try:

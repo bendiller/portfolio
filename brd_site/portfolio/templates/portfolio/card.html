@@ -6,7 +6,9 @@
         <div class="card-header-title">
           <div class="content">
             <p class="title is-3">{{ p.name }}</p>
-            <p class="subtitle is-italic is-size-6 has-text-grey">{{ p.start_date }} - {{ p.stop_date }}</p>
+            <p class="subtitle is-italic is-size-6 has-text-grey">
+              {{ p.start_date_as_str }} - {{ p.stop_date_as_str }}
+            </p>
           </div>
         </div>
       </div>

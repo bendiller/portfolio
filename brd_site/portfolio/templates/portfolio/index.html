@@ -1,12 +1,17 @@
 {% extends 'portfolio/base.html' %}
 {% block title %}Ben's Portfolio{% endblock %}
 
-{% block body %}
-{%if projects %}
-{% for project in projects %}
-<h3>{{ project.name }}</h3>
-
-
-{% endfor %}
+{% block content %}
+{% if projects %}
+  <div class="container">
+    <div class="tile is-ancestor is-vertical">
+      {% for p1, p2 in projects %}
+      <div class="tile is-parent is-12">
+        {% include "portfolio/card.html" with p=p1 %}
+        {% include "portfolio/card.html" with p=p2 %}
+      </div>
+      {% endfor %}
+    </div>
+  </div>
 {% endif %}
 {% endblock %}

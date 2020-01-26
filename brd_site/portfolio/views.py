@@ -1,3 +1,4 @@
+from django.http import Http404
 from django.shortcuts import render
 
 from .models import Project
@@ -15,3 +16,12 @@ def index(request):
 
     context = {'projects': tup_list}
     return render(request, 'portfolio/index.html', context)
+
+
+def detail(request, name):
+    """Detailed information about projects"""
+    try:
+        context = {'project': Project.objects.get(name=name)}
+    except Project.DoesNotExist:
+        context = {'bad_name': name}
+    return render(request, 'portfolio/detail.html', context)

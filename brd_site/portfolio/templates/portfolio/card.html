@@ -3,10 +3,29 @@
   <div class="tile is-child">
     <div class="card">
       <div class="card-header">
-        <h3 class="title is-3">{{ p.name }}</h3>
+        <div class="card-header-title">
+          <div class="content">
+            <p class="title is-3">{{ p.name }}</p>
+            <p class="subtitle is-italic is-size-6 has-text-grey">{{ p.start_date }} - {{ p.stop_date }}</p>
+          </div>
+        </div>
       </div>
+
       <div class="card-content">
-        Here is some dummy content
+        {{ p.short_blurb }}
+      </div>
+
+      <div class="card-footer">
+        <div class="card-footer-item">
+          Project Details
+        </div>
+        <div class="card-footer-item">
+          {% if p.code_link %}
+          <a href="{{ p.code_link }}">View Code</a>
+          {% else %}
+          Code Available On Request
+          {% endif %}
+        </div>
       </div>
     </div>
   </div>

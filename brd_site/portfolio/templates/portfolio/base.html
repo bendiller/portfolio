@@ -1,10 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>{% block title %}Ben's Portfolio{% endblock %}</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{% block title %}Ben's Portfolio{% endblock %}</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.8.0/css/bulma.min.css">
 </head>
 <body>
-{% block body %}{% endblock %}
+  <section class="hero is-primary">
+    <div class="hero-body">
+      <div class="container">
+        <h1 class="title is-1">Ben Diller<br>Python Dev For Hire</h1>
+        <h4 class="subtitle is-4">Put me in coach!</h4>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      {% block content %}{% endblock %}
+    </div>
+  </section>
+
+  <section class="footer">
+    <div class="container">
+      <div class="columns">
+        <div class="column"></div>
+        <div class="column is-narrow">Site created using:</div>
+        <div class="column is-narrow"><a href="https://www.djangoproject.com/">Django</a></div>
+        <div class="column is-narrow"><a href="https://bulma.io/">Bulma</a></div>
+        <div class="column"></div>
+      </div>
+    </div>
+  </section>
+
 </body>
 </html>

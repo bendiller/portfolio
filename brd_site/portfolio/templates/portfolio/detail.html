@@ -1,9 +1,9 @@
 {% extends 'portfolio/base.html' %}
 {% block title %}
   {% if project %}
-    {{ project.name }} Details
+    BDiller - {{ project.name }} Details
   {% else %}
-    Project Not Found
+    BDiller - Project Not Found
   {% endif %}
 {% endblock %}
 
@@ -37,7 +37,9 @@
         <p class="subtitle">
             Relevant technologies:<br>
             {% for tag in project.techtag_set.all %}
-              <span class="tag">{{ tag.name }}</span>
+              <span class="tag">
+                <a href="{% url 'tag' tag.name %}">{{ tag.name }}</a>
+              </span>
             {% endfor %}
           </p>
 

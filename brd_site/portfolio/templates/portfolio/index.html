@@ -1,8 +1,21 @@
 {% extends 'portfolio/base.html' %}
-{% block title %}Ben's Portfolio{% endblock %}
+{% block title %}
+  {% if bad_tag %}
+    BDiller - Tag Not Found
+  {% elif tag %}
+    BDiller - {{ tag }} Projects
+  {% else %}
+    BDiller - Portfolio Index
+  {% endif %}
+{% endblock %}
 
 {% block content %}
-{% if projects %}
+{% if bad_tag %}
+  <div class="title">
+    No project named "<span class="is-family-code has-text-weight-normal">{{ bad_tag }}</span>" exists!
+  </div>
+
+{% elif projects %}
   <div class="container">
     <div class="tile is-ancestor is-vertical">
       {% for p1, p2 in projects %}

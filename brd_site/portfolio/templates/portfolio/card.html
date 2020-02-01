@@ -20,7 +20,9 @@
           <p class="subtitle">
             Relevant technologies:<br>
             {% for tag in p.techtag_set.all %}
-              <span class="tag">{{ tag.name }}</span>
+              <span class="tag">
+                <a href="{% url 'tag' tag.name %}">{{ tag.name }}</a>
+              </span>
             {% endfor %}
           </p>
         </div>

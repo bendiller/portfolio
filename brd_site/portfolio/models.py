@@ -21,3 +21,12 @@ class Project(models.Model):
     def format_date(date_field):
         """Format DateField representations to remove day of month."""
         return date_field.strftime('%b %Y')
+
+
+class TechTag(models.Model):
+    name = models.CharField(blank=False, max_length=64, primary_key=True, unique=True)
+    projects = models.ManyToManyField(Project)
+
+    class Meta:
+        ordering = ['name']
+

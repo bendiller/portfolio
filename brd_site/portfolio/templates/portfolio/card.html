@@ -16,6 +16,18 @@
       </a>
 
       <div class="card-content">
+        <div class="content">
+          <p class="subtitle">
+            Relevant technologies:<br>
+            {% for tag in p.techtag_set.all %}
+              <span class="tag">{{ tag.name }}</span>
+            {% endfor %}
+          </p>
+        </div>
+
+        <p class="subtitle">
+          Project description:
+        </p>
         {{ p.short_blurb }}
       </div>
 

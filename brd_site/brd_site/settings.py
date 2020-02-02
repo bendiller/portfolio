@@ -25,7 +25,7 @@ SECRET_KEY = '0j*%e6$jpyzx#s&awo17^7zuhjn5^njz@^qb#o+(&ikzam&f%v'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['bd-dell-laptop', '192.168.0.3', '127.0.0.1']
 
 
 # Application definition

@@ -27,37 +27,7 @@
 
 {% block content %}
 {% if project %}
-  <div class="box">
-    <div class="title">{{ project.name }}</div>
-    <div class="subtitle is-italic is-size-6 has-text-grey">
-      {{ project.start_date_as_str }} - {{ project.stop_date_as_str }}
-    </div>
-    <div class="columns">
-      <div class="column is-8">
-        <p class="subtitle">
-            Relevant technologies:<br>
-            {% for tag in project.techtag_set.all %}
-              <span class="tag">
-                <a href="{% url 'tag' tag.name %}">{{ tag.name }}</a>
-              </span>
-            {% endfor %}
-          </p>
-
-        <p class="subtitle">
-          Project description:<br>
-          <span class="is-size-6">{{ project.short_blurb }}</span>
-
-        </p>
-
-
-        <p class="subtitle">
-          Additional project details:
-        </p>
-        {{ project.long_blurb }}
-      </div>
-    </div>
-  </div>
-
+  {% include "portfolio/card.html" with p=project detail=True %}
 {% else %}
 <div class="title">
   No project named "<span class="is-family-code has-text-weight-normal">{{ bad_name }}</span>" exists!

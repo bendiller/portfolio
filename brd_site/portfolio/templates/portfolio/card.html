@@ -1,9 +1,11 @@
-<!--The card template has two "modes" - summary (detail=False) and detailed (detail=True). They overlap a lot, so -->
-<!--I chose to use a single template so that I could update the display for both at once (DRY).-->
+{% comment %}
+The card template has two "modes" - summary (detail=False) and detailed (detail=True). They overlap a lot, so
+I chose to use a single template so that I could update the display for both at once (DRY).
 
-<!--Summary mode is used on the index and tag pages, detailed mode is used on the detail pages. -->
-<!--Summary mode leaves out some details about the project of course, and it also includes a link to a detailed -->
-<!--representation in the footer.-->
+Summary mode is used on the index and tag pages, detailed mode is used on the detail pages.
+Summary mode leaves out some details about the project of course, and it also includes a link to a detailed
+representation in the footer.
+{% endcomment %}
 
 {% if detail %}
 {% else %}

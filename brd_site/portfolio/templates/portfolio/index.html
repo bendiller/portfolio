@@ -9,6 +9,15 @@
   {% endif %}
 {% endblock %}
 
+
+
+  {% block breadcrumb %}
+    {% if tag %}
+      {% include "portfolio/breadcrumb.html" with tag=tag %}
+    {% endif %}
+  {% endblock %}
+
+
 {% block content %}
 {% if bad_tag %}
   <div class="title">

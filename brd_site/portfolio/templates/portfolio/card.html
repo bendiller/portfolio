@@ -13,69 +13,67 @@ representation in the footer.
 
 {% if p %}
 {% if detail %}
-<div class="tile is-parent is-9  {{ p.type }} proj">
+<div class="column is-9  {{ p.type }} proj">
 {% else %}
-<div class="tile is-parent is-6  {{ p.type }} proj">
+<div class="column is-6  {{ p.type }} proj">
 {% endif %}
 
-  <div class="tile is-child">
-    <div class="card">
-      <a href="{% url 'detail' p.name %}" class="has-text-black">
-        <div class="card-header">
-          <div class="card-header-title">
-            <div class="content" style="padding-left: 8px">
-              <p class="title is-3">{{ p.name }}</p>
-              <p class="subtitle is-italic is-size-6 has-text-grey">
-                {{ p.start_date_as_str }} - {{ p.stop_date_as_str }}
-              </p>
-            </div>
+  <div class="card">
+    <a href="{% url 'detail' p.name %}" class="has-text-black">
+      <div class="card-header">
+        <div class="card-header-title">
+          <div class="content" style="padding-left: 8px">
+            <p class="title is-3">{{ p.name }}</p>
+            <p class="subtitle is-italic is-size-6 has-text-grey">
+              {{ p.start_date_as_str }} - {{ p.stop_date_as_str }}
+            </p>
           </div>
         </div>
-      </a>
+      </div>
+    </a>
 
-      <div class="card-content">
-        <div class="content">
+    <div class="card-content">
+      <div class="content">
+        <p class="subtitle">
+          Relevant technologies:<br>
+          {% for tag in p.techtag_set.all %}
+            <span class="tag">
+              <a href="{% url 'tag' tag.name %}">{{ tag.name }}</a>
+            </span>
+          {% endfor %}
+        </p>
+
+        <p class="subtitle">
+        Project description:<br>
+          <span class="is-size-6">{{ p.short_blurb }}</span>
+        </p>
+
+
+        {% if detail %}
           <p class="subtitle">
-            Relevant technologies:<br>
-            {% for tag in p.techtag_set.all %}
-              <span class="tag">
-                <a href="{% url 'tag' tag.name %}">{{ tag.name }}</a>
-              </span>
-            {% endfor %}
+            Additional project details:
           </p>
-
-          <p class="subtitle">
-          Project description:<br>
-            <span class="is-size-6">{{ p.short_blurb }}</span>
-          </p>
-
-
-          {% if detail %}
-            <p class="subtitle">
-              Additional project details:
-            </p>
-              {{ project.long_blurb }}
-          {% endif %}
-        </div>
-
-
+            {{ project.long_blurb }}
+        {% endif %}
       </div>
 
-      <div class="card-footer">
-        {% if detail is not True %}
-        <div class="card-footer-item">
-          <a href="{% url 'detail' p.name %}" class="button is-info">
-            Project Details
-          </a>
-        </div>
+
+    </div>
+
+    <div class="card-footer">
+      {% if detail is not True %}
+      <div class="card-footer-item">
+        <a href="{% url 'detail' p.name %}" class="button is-info">
+          Project Details
+        </a>
+      </div>
+      {% endif %}
+      <div class="card-footer-item">
+        {% if p.code_link %}
+        <a href="{{ p.code_link }}">View Code</a>
+        {% else %}
+        Code Available On Request
         {% endif %}
-        <div class="card-footer-item">
-          {% if p.code_link %}
-          <a href="{{ p.code_link }}">View Code</a>
-          {% else %}
-          Code Available On Request
-          {% endif %}
-        </div>
       </div>
     </div>
   </div>

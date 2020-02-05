@@ -9,14 +9,11 @@
   {% endif %}
 {% endblock %}
 
-
-
   {% block breadcrumb %}
     {% if tag %}
       {% include "portfolio/breadcrumb.html" with tag=tag %}
     {% endif %}
   {% endblock %}
-
 
 {% block content %}
 {% if bad_tag %}
@@ -26,12 +23,9 @@
 
 {% elif projects %}
   <div class="container">
-    <div class="tile is-ancestor is-vertical">
-      {% for p1, p2 in projects %}
-      <div class="tile is-parent is-12">
-        {% include "portfolio/card.html" with p=p1 %}
-        {% include "portfolio/card.html" with p=p2 %}
-      </div>
+    <div class="columns is-multiline is-vcentered">
+      {% for p in projects %}
+        {% include "portfolio/card.html" with p=p %}
       {% endfor %}
     </div>
   </div>

@@ -13,9 +13,9 @@ representation in the footer.
 
 {% if p %}
 {% if detail %}
-<div class="tile is-parent is-9">
+<div class="tile is-parent is-9  {{ p.type }} proj">
 {% else %}
-<div class="tile is-parent is-6">
+<div class="tile is-parent is-6  {{ p.type }} proj">
 {% endif %}
 
   <div class="tile is-child">

@@ -1,0 +1,27 @@
+{% extends 'portfolio/base.html' %}
+{% block title %}
+  {% if bad_tag %}
+    BDiller - Tag Not Found
+  {% elif tag %}
+    BDiller - {{ tag }} Projects
+  {% else %}
+    BDiller - Projects
+  {% endif %}
+{% endblock %}
+
+{% block content %}
+{% if bad_tag %}
+  <div class="title">
+    No tag named "<span class="is-family-code has-text-weight-normal">{{ bad_tag }}</span>" exists!
+  </div>
+
+{% elif projects %}
+  <div class="container">
+    <div class="columns is-multiline is-vcentered">
+      {% for p in projects %}
+        {% include "portfolio/card.html" with p=p %}
+      {% endfor %}
+    </div>
+  </div>
+{% endif %}
+{% endblock %}

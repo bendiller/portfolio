@@ -1,18 +1,23 @@
 {% load static %}
 
 <div class="container">
-<!--  <div class="tabs" style="padding-left: 36px">-->
   <div class="tabs" style="padding-left: 20px">
     <ul>
-      <li class="is-active" id="tab-all-proj"><a id="all-proj">All Projects</a></li>
-      <li id="tab-pers-proj"><a id="personal-proj">Personal Projects</a></li>
-      <li id="tab-open-source-proj"><a id="open-source-proj">Open-Source Contributions</a></li>
+      <li class="tab" id="about-tab"> {# Needs to be dynamically set! #}
+        <a href="{% url 'index' %}">About<br>Me</a>
+      </li>
+      <li class="tab" id="pers-proj-tab">
+        <a href="{% url 'projects' 'Personal' %}">Personal<br>Projects</a>
+      </li>
+      <li class="tab" id="os-proj-tab">
+        <a href="{% url 'projects' 'OpenSource' %}">Open-Source<br>Contributions</a>
+      </li>
       {% if tag %}
-      <li id="tab-tech-tag" class="is-active"><a>Tech. tag:<br>{{ tag }}</a></li>
+      <li class="is-active"><a>Tech. tag:<br>{{ tag }}</a></li>
       {% elif project %}
       <li id="tab-detail" class="is-active"><a>Project Details:<br>{{ project.name }}</a></li>
       {% endif %}
     </ul>
   </div>
 </div>
-<script src="{% static 'portfolio/tabs.js' %}"></script>
+<script src="{% static 'portfolio/tabs.js' %}" tabId="{{ tab_id }}"></script>

@@ -7,6 +7,11 @@
       <li class="is-active" id="tab-all-proj"><a id="all-proj">All Projects</a></li>
       <li id="tab-pers-proj"><a id="personal-proj">Personal Projects</a></li>
       <li id="tab-open-source-proj"><a id="open-source-proj">Open-Source Contributions</a></li>
+      {% if tag %}
+      <li id="tab-tech-tag" class="is-active"><a>Tech. tag:<br>{{ tag }}</a></li>
+      {% elif project %}
+      <li id="tab-detail" class="is-active"><a>Project Details:<br>{{ project.name }}</a></li>
+      {% endif %}
     </ul>
   </div>
 </div>

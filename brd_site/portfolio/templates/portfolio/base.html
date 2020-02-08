@@ -19,11 +19,13 @@
     </div>
   </section>
 
-  {% if not tag and not project %}
+  {% if tag and not project %}
+    {% include "portfolio/tabs.html" with tag=tag %}
+  {% elif project %}
+    {% include "portfolio/tabs.html" with project=project %}
+  {% else %}
     {% include "portfolio/tabs.html" %}
   {% endif %}
-
-  {% block breadcrumb %}{%endblock%}
 
   <section class="section">
     <div class="container">

@@ -50,10 +50,12 @@ representation in the footer.
 
 
         {% if detail %}
-          <p class="subtitle">
+          <p class="subtitle" style="margin-bottom: 0">
             Additional project details:
           </p>
-            {{ project.long_blurb }}
+            {% autoescape off %}
+              {{ project.long_blurb }}
+            {% endautoescape %}
         {% endif %}
       </div>
 

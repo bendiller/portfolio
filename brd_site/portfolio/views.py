@@ -1,11 +1,13 @@
 from django.shortcuts import render
 
-from .models import Project, TechTag
+from .models import Content, Project, TechTag
 
 
 def index(request):
     context = {
-        'about_me': "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+        'about_me_title': Content.objects.get(name='about_me_title').text,
+        'about_me_subtitle': Content.objects.get(name='about_me_subtitle').text,
+        'about_me_content': Content.objects.get(name='about_me_content').text,
         'tab_id': 'about-tab'
     }
 

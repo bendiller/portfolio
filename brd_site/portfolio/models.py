@@ -35,3 +35,8 @@ class TechTag(models.Model):
 
     class Meta:
         ordering = ['name']
+
+
+class Content(models.Model):
+    name = models.CharField(blank=False, max_length=32, unique=True)
+    text = models.TextField(blank=False)

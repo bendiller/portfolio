@@ -3,8 +3,11 @@
 import os
 import sys
 
+from dotenv import load_dotenv
+
 
 def main():
+    load_dotenv(dotenv_path=os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), 'django.env'))
     os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'brd_site.settings')
     try:
         from django.core.management import execute_from_command_line

@@ -1,3 +1,5 @@
 /.env/
 /.idea/
 /brd_site/db.sqlite3
+/venv/
+django.env

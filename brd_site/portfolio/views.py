@@ -20,7 +20,7 @@ def projects(request, tag=None, proj_type="Personal"):
         try:
             context['projects'] = TechTag.objects.get(name=tag).projects.all()
             context['tag'] = tag
-            context['tab_id'] = ''
+            context['tab_id'] = 'tech-tab'
         except TechTag.DoesNotExist:
             context['bad_tag'] = tag
             return render(request, 'portfolio/index.html', context={'bad_tag': tag})
@@ -38,7 +38,9 @@ def projects(request, tag=None, proj_type="Personal"):
 def detail(request, name):
     """Detailed information about projects"""
     try:
-        context = {'project': Project.objects.get(name=name)}
+        context = {'project': Project.objects.get(name=name),
+                   'tab_id': 'detail-tab'}
     except Project.DoesNotExist:
-        context = {'bad_name': name}
+        context = {'bad_name': name,
+                   'tab_id': 'detail-tab'}
     return render(request, 'portfolio/detail.html', context)

@@ -34,28 +34,26 @@ representation in the footer.
 
     <div class="card-content">
       <div class="content">
-        <p class="subtitle">
-          Relevant technologies:<br>
+        <p class="subtitle">Relevant technologies:</p>
+        <div class="tags">
           {% for tag in p.techtag_set.all %}
-            <span class="tag">
+            <div class="tag">
               <a href="{% url 'tag' tag.name %}">{{ tag.name }}</a>
-            </span>
+            </div>
           {% endfor %}
-        </p>
+        </div>
 
-        <p class="subtitle">
-        Project description:<br>
-          <span class="is-size-6">{{ p.short_blurb }}</span>
-        </p>
+        <p class="subtitle">Project description:</p>
+        <p>{{ p.short_blurb }}</p>
 
 
         {% if detail %}
-          <p class="subtitle" style="margin-bottom: 0">
-            Additional project details:
-          </p>
+          <p class="subtitle">Additional project details:</p>
+          <p>
             {% autoescape off %}
               {{ project.long_blurb }}
             {% endautoescape %}
+          </p>
         {% endif %}
       </div>
 

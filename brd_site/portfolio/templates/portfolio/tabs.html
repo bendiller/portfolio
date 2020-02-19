@@ -4,18 +4,22 @@
   <div class="tabs" style="padding-left: 20px">
     <ul>
       <li class="tab" id="about-tab"> {# Needs to be dynamically set! #}
-        <a href="{% url 'index' %}">About<br>Me</a>
+        <a href="{% url 'index' %}" class="is-size-7-mobile">About<br>Me</a>
       </li>
       <li class="tab" id="pers-proj-tab">
-        <a href="{% url 'projects' 'Personal' %}">Personal<br>Projects</a>
+        <a href="{% url 'projects' 'Personal' %}" class="is-size-7-mobile">Solo<br>Projects</a>
       </li>
       <li class="tab" id="os-proj-tab">
-        <a href="{% url 'projects' 'OpenSource' %}">Open-Source<br>Contributions</a>
+        <a href="{% url 'projects' 'OpenSource' %}" class="is-size-7-mobile">Open<br>Source</a>
       </li>
       {% if tag %}
-      <li class="is-active"><a>Tech. tag:<br>{{ tag }}</a></li>
+      <li class="tab" id="{{ tab_id }}">
+        <a class="is-size-7-mobile">Tech. tag:<br>{{ tag }}</a>
+      </li>
       {% elif project %}
-      <li id="tab-detail" class="is-active"><a>Project Details:<br>{{ project.name }}</a></li>
+      <li class="tab" id="{{ tab_id }}">
+        <a class="is-size-7-mobile">Project Details:<br>{{ project.name }}</a>
+      </li>
       {% endif %}
     </ul>
   </div>

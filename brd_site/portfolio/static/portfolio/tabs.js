@@ -1,9 +1,6 @@
-console.log("Here?");
 tabId = document.currentScript.getAttribute('tabId');
 activateTab(tabId);
 function activateTab(tabId) {
-    console.log("When is this running")
-    console.log(tabId)
     // Deactivate tabs:
     tabs = document.getElementsByClassName("tab");
     var i;
